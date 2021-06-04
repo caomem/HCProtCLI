@@ -338,7 +338,7 @@ namespace HCProtCLI
                         if (resId != 0)
                         {
                             Console.WriteLine("Error: Dont's possible to calc the HC Order for a non padronized protein.\n Please, dont use the HC Order with Res filter.");
-                            break;
+                            return;
                         }
                         else if (ended)
                         {
@@ -348,7 +348,7 @@ namespace HCProtCLI
                         else
                         {
                             Console.WriteLine("HC Order calc Error\n"+er.Message);
-                            break;
+                            return;
                         }
                     }
 
