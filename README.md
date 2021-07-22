@@ -32,3 +32,20 @@ dotnet HCProtCLI.dll
 ```
 
 to view the usage help.
+
+## Usage Tips
+
+There are some useful shell scripts in utils folder. 
+For example, if you want to process the [2y4q](https://www.rcsb.org/structure/2Y4Q) and [2rv5](https://www.rcsb.org/structure/2RV5) PDB mols with HCProtCLI in Linux, you can fallow this steps:
+
+```bash
+cp utils/* HCProtCLI/release 
+cd HCProtCLI/release
+bash ./getPDB.sh 2y4q 2rv5
+mkdir mols
+mv *.ent mols
+mkdir processedMols
+bash ./HCProtProcess.sh mols processedMols
+```
+and now you has the 2y4q and 2rv5 PDB files ordained in processedMols files.
+The HCProtProcess.sh script makes the preprocessing files used by default in [MolecularConformation.jl](https://github.com/evcastelani/MolecularConformation.jl) julia package. This is made by using the `-t 5 --order --bp` HCProtCLI parameters. 
